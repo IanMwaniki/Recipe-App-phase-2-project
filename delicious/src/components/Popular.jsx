@@ -21,15 +21,16 @@ console.log(data.recipes);
 //going through the fetched data recipes to dispaly them through maping
     return (
         <div>
-            {popular.map(recipe =>{
-       return(
-    //    <div key={recipe.id}>
-    //     <p>{recipe.title}</p>
-    //    </div>
-    <Wrapper>
+       <Wrapper>
         <h3>Popular Picks</h3>
         
-        <Splide>
+        <Splide options={{
+            perPage: 4,
+            arrows: true,
+            pagination: false,
+            drag: "free",
+            gap: "5rem",
+        }}>
         {popular.map((recipe) => {
             return (
                 <SplideSlide>
@@ -43,9 +44,7 @@ console.log(data.recipes);
         </Splide>
 
     </Wrapper>
-       );
-            })}
-        </div>
+     </div>
     )
 }
 
