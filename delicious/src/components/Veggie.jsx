@@ -1,11 +1,11 @@
 import React from "react";
 
-function Popular(){
+function Veggie(){
     return (
         <div>
-            Popular
+            Veggie
         </div>
     )
 }
 
-export default Popular;
+export default Veggie;
