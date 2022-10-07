@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {Splide, SplideSlide} from "@splidejs/react-splide";
-import '@splidejs/react-splide/css';
+import "@splidejs/react-splide/css";
 
 function Popular(){
     const [popular, setPopular] = useState([]);
@@ -11,12 +11,22 @@ useEffect(() => {
 },[]);
 
     const getPopular = async () => {
-const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
-const data = await api.json();
-// console.log(data);
-setPopular(data.recipes);
-console.log(data.recipes);
-    }
+
+const check = localStorage.getItem("popular");
+
+if(check){
+    setPopular(JSON.parse(check));
+}else{
+    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
+    const data = await api.json();
+
+    localStorage.setItem("popular", JSON.stringify(data.recipe));
+
+    // console.log(data);
+    setPopular(data.recipes);
+    console.log(data.recipes);
+        }
+}
 
 //going through the fetched data recipes to dispaly them through maping
     return (
@@ -33,7 +43,7 @@ console.log(data.recipes);
         }}>
         {popular.map((recipe) => {
             return (
-                <SplideSlide>
+                <SplideSlide key={recipe.id}>
            <Card>
             <p>{recipe.title}</p>
             <img src={recipe.image} alt={recipe.title}/>
@@ -61,26 +71,26 @@ position: relative;
 
  img{
     border-radius: 2rem;
-    position: absolute;
+     position: absolute;
     left: 0;
-    width: 100%;
-    height: 100%
-    object-fit: cover;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
 }
 
 p{
     position: absolute;
-    z-index: 10;
-    left: 50%;
-    bottom: 0%;
+     z-index: 10;
+    //  left: 50%;
+     bottom: 10%;
     transform: translate(-50%, 0%)
-    color: black;
+    color: white;
     width: 100%;
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
     height: 40%;
-    display: flex;
+     display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -93,4 +103,4 @@ height: 100%;
 background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
-export default Popular;
+export default Popular;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
