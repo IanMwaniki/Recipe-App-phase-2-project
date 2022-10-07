@@ -8,7 +8,7 @@ Special Diets/Intolerances:We automatically analyze recipes to check for ingredi
 
 Nutritional Information:We compute the nutritional information for recipes automatically. With this information, you can find individual recipes that satisfy your users' dietary goals.
 
-
+#Githublink:https://github.com/IanMwaniki/Recipe-App-phase-2-project
 
 The project depends on HTML,CSS,JS & Reactjs.For its functionality aspect,It is fully functional and keeps on updating upon its functions.
 
