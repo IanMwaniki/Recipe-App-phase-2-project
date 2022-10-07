@@ -12,11 +12,11 @@ useEffect(() => {
 
     const getPopular = async () => {
 
-const check = localStorage.getItem("popular");
+// const check = localStorage.getItem("popular");
 
-if(check){
-    setPopular(JSON.parse(check));
-} else {
+// if(check){
+//     setPopular(JSON.parse(check));
+// } else {
     const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
     const data = await api.json();
 
@@ -25,7 +25,7 @@ if(check){
     // console.log(data);
     setPopular(data.recipes);
     console.log(data.recipes);
-        }
+        // }
 };
 
 
@@ -76,7 +76,7 @@ position: relative;
     left: 0;
      width: 100%;
      height: 100%;
-     object-fit: cover;
+    //  object-fit: cover;
 }
 
 p{

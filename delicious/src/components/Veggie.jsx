@@ -12,12 +12,12 @@ function Veggie() {
     
         const getVeggie = async () => {
     
-    const check = localStorage.getItem("veggie");
+    // const check = localStorage.getItem("veggie");
     
-    if(check){
-        setVeggie(JSON.parse(check));
-    } else {
-        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`);
+    // if(check){
+    //     setVeggie(JSON.parse(check));
+    // } else {
+        const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10&tags=vegetarian`);
         const data = await api.json();
     
         localStorage.setItem("veggie", JSON.stringify(data.recipe));
@@ -25,7 +25,7 @@ function Veggie() {
         // console.log(data);
         setVeggie(data.recipes);
         console.log(data.recipes);
-            }
+            // }
     };
 
     return (
@@ -34,7 +34,7 @@ function Veggie() {
          <h3>Our Vegetarian Picks</h3>
          
          <Splide options={{
-             perPage: 3,
+             perPage: 4,
              arrows: true,
              pagination: false,
              drag: "free",
@@ -74,7 +74,7 @@ position: relative;
     left: 0;
      width: 100%;
      height: 100%;
-     object-fit: cover;
+    //  object-fit: cover;
 }
 
 p{
